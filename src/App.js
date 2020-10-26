@@ -41,7 +41,7 @@ class App extends React.Component {
 
 	handleAddItem = (itemName) => {
 		console.log(itemName);
-		const lastId = this.state.todoItems[this.state.todoItems.length - 1].id;
+		const lastId = this.state.todoItems.length > 0 ? this.state.todoItems[this.state.todoItems.length - 1].id : 1528817084358;
 		const nextId = lastId + 1;
 		this.setState({
 			todoItems: [...this.state.todoItems, {
