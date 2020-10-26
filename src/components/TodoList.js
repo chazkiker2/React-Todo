@@ -1,21 +1,42 @@
 import React from "react";
 import Todo from "./Todo";
-import TodoForm from "./TodoForm";
+// import TodoForm from "./TodoForm";
+import styled from "styled-components";
 
+const StyledList = styled.ul`
+	/* list-style-type: none; */
+	padding: 0;
+`;
+const ListContainer = styled.div`
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
+	align-items: flex-start;
+`;
+const Container = styled.div`
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	width: 40%;
+	padding: 2rem 0;
+`;
 
 class TodoList extends React.Component {
 	render() {
 		return (
-			<div>
-				<ul>
-					{
-						this.props.items.map(it => {
-							return <Todo key={it.id} item={it} handleToggleItem={this.props.handleToggleItem} />
-						})
-					}
-				</ul>
-				<button onClick={this.props.handleClear}>Clear Complete</button>
-			</div>
+			<Container>
+				<ListContainer>
+					<StyledList>
+						{
+							this.props.items.map(item => {
+								return <Todo key={item.id} item={item} handleToggleItem={this.props.handleToggleItem} />
+							})
+						}
+					</StyledList>
+				</ListContainer>
+			</Container>
 		);
 	}
 }
