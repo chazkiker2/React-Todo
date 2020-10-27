@@ -3,16 +3,6 @@ import Todo from "./Todo";
 // import TodoForm from "./TodoForm";
 import styled from "styled-components";
 
-const StyledList = styled.ul`
-	/* list-style-type: none; */
-	padding: 0;
-`;
-const ListContainer = styled.div`
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: space-evenly;
-	align-items: flex-start;
-`;
 const Container = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
@@ -21,6 +11,15 @@ const Container = styled.div`
 	margin: 0 auto;
 	width: 40%;
 	padding: 2rem 0;
+`;
+const ListContainer = styled.div`
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
+	align-items: flex-start;
+`;
+const StyledList = styled.ul`
+	padding: 0;
 `;
 
 class TodoList extends React.Component {

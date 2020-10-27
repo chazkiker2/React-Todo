@@ -15,6 +15,9 @@ const TodoContainer = styled.li`
 	width: 100%;
 	position: relative;
 	margin-bottom: 1.25rem;
+	label {
+		color: ${pr => pr.theme.almond};
+	}
 	&::after {
 		content: "";
 		position: absolute;
@@ -29,14 +32,16 @@ const TodoContainer = styled.li`
 		opacity: 0;
 		position: absolute;
 	}
-	&:hover .custom-checkbox, [type=checkbox]:focus + label .custom-checkbox {
+	/* &:hover .custom-checkbox, [type=checkbox]:focus + label .custom-checkbox {
 		transform: scale(1.2);
-	}
+	} */
 	[type=checkbox]:checked + label .custom-checkbox {
 		/* background: var(--clr-primary); */
-		background: ${pr => pr.checked ? "blue" : "white"};
-		border-color: var(--clr-primary);
-		box-shadow: inset 0 0 0px 2px ${pr => pr.theme.checked ? "blue" : "white"};
+		/* background: ${pr => pr.checked ? "blue" : "white"}; */
+		background: ${pr => pr.checked ? pr.theme.almond : pr.theme.gunmetal};
+		/* border-color: var(--clr-primary); */
+		border-color: ${pr => pr.checked ? pr.theme.almond : pr.theme.gunmetal};
+		box-shadow: inset 0 0 0px 2px ${pr => pr.checked ? pr.theme.almond : pr.theme.gunmetal};
 	}
 	[type=checkbox]:checked + label {
 		opacity: 0.5;
@@ -78,7 +83,7 @@ const TodoContainer = styled.li`
 			border-radius: 50%;
 			transform: scale(1);
 			transition: transform 300ms ease-in-out;
-			background-color: ${pr => pr.checked ? "blue" : "transparent"};
+			background-color: ${pr => pr.checked ? pr.theme.almond : pr.theme.gunmetal};
 		}
 	}
 `;
@@ -97,7 +102,6 @@ const Todo = props => {
 				<span className="custom-checkbox" checked={item.completed}></span>
 				{item.task}
 			</label>
-
 		</TodoContainer>
 	);
 };

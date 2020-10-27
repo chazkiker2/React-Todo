@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 // import "./App.css";
+import "./dist/App.css";
 import styled from "styled-components";
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
@@ -9,23 +10,38 @@ import styled from "styled-components";
 const AppWrapper = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	max-width: 100%;
 	width: 100%;
+	background: ${pr => pr.theme.khaki};
+	height: 100vh;
 `;
 const Container = styled.div`
-	margin-top: 2rem;
-	width: 60%;
+	padding-top: 5vh;
+	width: 90%;
+	height: 100%;
 	border: 1px solid black;
 	text-align: center;
 	font-family: sans-serif;
 	font-size: 1.3rem;
+	/* background: ${pr => pr.theme.secondary}; */
+	background-color: ${pr => pr.theme.umber};
 	h2 {
 		font-size: 2rem;
 		padding: 1rem;
-		background-color: lightgray;
+		font-weight: 700;
+
+		color: ${pr => pr.theme.almond};
 	}
+`;
+const Button = styled.button`
+	width: 15rem;
+	height: 30px;
+	/* border: 0.1% solid gunmetal; */
+	border: 0;
+	background-color: ${pr => pr.theme.almond};
+	margin-top: 10px;
 `;
 
 const todoItems = [
@@ -88,10 +104,10 @@ class App extends React.Component {
 		return (
 			<AppWrapper>
 				<Container>
-					<h2>Welcome to your Todo App!</h2>
-					<TodoList handleToggleItem={this.handleToggleItem} handleClear={this.handleClear} items={this.state.todoItems} />
+					<h2>Basic To-Do App</h2>
 					<TodoForm handleAddItem={this.handleAddItem} />
-					<button onClick={this.handleClear}>Clear Complete</button>
+					<Button onClick={this.handleClear}>Clear Complete</Button>
+					<TodoList handleToggleItem={this.handleToggleItem} handleClear={this.handleClear} items={this.state.todoItems} />
 				</Container>
 			</AppWrapper>
 		);
